@@ -13,8 +13,8 @@ def load(f):
     return idx
 
 def index(data):
-    #return FMSimpleIndex(data)
-    return FMFullIndex(data)
+    return FMSimpleIndex(data)
+    #return FMFullIndex(data)
 
 class FMSimpleIndex(object):   
     def __init__(self, data):
@@ -25,7 +25,7 @@ class FMSimpleIndex(object):
         self._build()
     
     def _build(self):
-        self.occ = bwt.CalculateFirstOcc(self.data)
+        self.occ = bwt.calc_first_occ(self.data)
     
     def _occ(self, idx, qc):
         c = self.occ.get(qc)
@@ -102,7 +102,7 @@ class FMFullIndex(FMSimpleIndex):
         self._build()
     
     def _build(self):       
-        occ = bwt.CalculateFirstOcc(self.data)
+        occ = bwt.calc_first_occ(self.data)
         
         # FM Index
         FM = {}
@@ -149,7 +149,7 @@ class FMCheckpointing(FMSimpleIndex):
         self._build()
     
     def _build(self):       
-        occ = self._calc_occ()
+        occ = bwt.calc_first_occ()
         
         # FM Index
         FM = {}

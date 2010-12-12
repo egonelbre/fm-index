@@ -106,7 +106,7 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
 # ---------------------------------------------------------------------------- #
 
 
-def CalculateFirstOcc(s):
+def calc_first_occ(s):
     """ calculate the first occurance of a letter in sorted string s """
     # s - is the bwt transformed string
     A = {} # letter count
@@ -139,7 +139,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
             O(n) time, O(n*E) memory """
         
         # calculate the first occurance of letters in left column
-        occ = CalculateFirstOcc(s)
+        occ = calc_first_occ(s)
         
         # calculate the full lf-mapping
         # lf is mapping from input letter rank occurance to left letter
@@ -163,8 +163,9 @@ class FastBurrowsWheeler(BurrowsWheeler):
         r = ''.join(r)
         return r.rstrip(self.EOS)
 
-def CalculateCheckpoints(s, step):
-    """ count the number of letters for each step """
+def calc_checkpoints(s, step):
+    """ count the number of letters for each step and
+        return list of the counts"""
     A = {} # letter count
     C = [] # checkpoints
     for i, c in enumerate(s):
@@ -176,12 +177,13 @@ def CalculateCheckpoints(s, step):
             A[c] = 1
     return C
 
-def LetterRankWithCheckpoints(C, step, s, idx, letter):
-    # s - is the transformed text
-    # idx - is the index in the tranformed string
-    # C - is the checkpoint list with step 20
-    # occ - is the first occurance of the letters
-    # letter - is the the letter to count
+def count_letter_with_checkpoints(C, step, s, idx, letter):
+    """ count the number of a letter upto idx in s using checkpoints,
+        C      - is the list of checkpoints
+        step   - is the step of the checkpoints
+        s      - the transformed string
+        idx    - count upto this position
+        letter - count for this letter """
     
     # find the nearest checkpoint for idx
     check = (idx + (step / 2)) / step
@@ -226,7 +228,7 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         # occ - is the first occurance of the letters
         
         letter = s[idx]        
-        count = LetterRankWithCheckpoints(C, self.step, s, idx, letter)
+        count = count_letter_with_checkpoints(C, self.step, s, idx, letter)
         
         # return the appropriate lf mapping
         return occ[letter] + count
@@ -236,9 +238,9 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
             where E is the letter count """
         
         # calculate the first occurance of letters in left column
-        occ = CalculateFirstOcc(s)
+        occ = calc_first_occ(s)
         # calculate the letter count checkpoints, in s
-        C   = CalculateCheckpoints(s, self.step)
+        C   = calc_checkpoints(s, self.step)
         
         # create an empty list for storing the string
         r = [0]*(len(s)-1)
