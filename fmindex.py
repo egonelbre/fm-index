@@ -13,27 +13,30 @@ def load(f):
     return idx
 
 def index(data):
-    return FMSimpleIndex(data)
+    #return FMSimpleIndex(data)
     #return FMFullIndex(data)
+    return FMCheckpointing(data)
 
 class FMSimpleIndex(object):   
     def __init__(self, data):
         self.orig = data
         self.data = bw.transform(data)
         self.offset = {}
-        self.occ = {}
         self._build()
     
     def _build(self):
+        """ build the index """
         self.occ = bwt.calc_first_occ(self.data)
     
-    def _occ(self, idx, qc):
+    def _occ(self, qc):
+        """ get the first occurance of letter qc in left-column"""
         c = self.occ.get(qc)
         if c == None:
             return 0
         return c
     
     def _count(self, idx, qc):
+        """ count the occurances of letter qc (rank of qc) upto position idx """
         if not qc in self.occ.keys(): return 0
         c = 0
         for i in xrange(idx):
@@ -42,11 +45,15 @@ class FMSimpleIndex(object):
         return c
     
     def _lf(self, idx, qc):
-        o = self._occ(idx, qc)
+        """ get the nearset lf mapping for letter qc at position idx """
+        o = self._occ(qc)
         c = self._count(idx, qc)
         return o + c
     
     def _walk(self, idx):
+        """ find the offset in position idx of transformed string
+            from the beginning """
+        
         # walk to the beginning using lf mapping
         # this is same as inverse of burrow wheeler transformation
         # from arbitrary location
@@ -66,7 +73,7 @@ class FMSimpleIndex(object):
         return r
     
     def bounds(self, q):
-        # find the appropriate suffixes
+        """ find the first and last suffix positions for query q """
         top = 0
         bot = len(self.data)
         for i, qc in enumerate(q[::-1]):
@@ -76,6 +83,8 @@ class FMSimpleIndex(object):
         return (top,bot)
     
     def search(self, q):
+        """ search the positions of query q """
+        
         # find the suffixes for the query
         top, bot = self.bounds(q)
         matches = []
@@ -88,6 +97,7 @@ class FMSimpleIndex(object):
         return sorted(matches)
     
     def count(self, q):
+        """ count occurances of q in the index """
         top, bot = self.bounds(q)
         return bot - top
 
@@ -98,7 +108,6 @@ class FMFullIndex(FMSimpleIndex):
         self.orig = data
         self.data = bw.transform(data)
         self.offset = {}
-        self.FM = None
         self._build()
     
     def _build(self):       
@@ -111,7 +120,6 @@ class FMFullIndex(FMSimpleIndex):
             # space inefficient
             for x, v in occ.items():
                 FM[(i,x)] = v
-            FM[i] = occ[c]
             occ[c] += 1
         i = len(self.data)
         for x, v in occ.items():
@@ -122,20 +130,6 @@ class FMFullIndex(FMSimpleIndex):
     
     def _lf(self, idx, qc):
         return self.FM[(idx,qc)]
-    
-    def _walk(self, idx):
-        r = 0
-        i = idx 
-        while self.data[i] != bw.EOS:
-            if self.offset.get(i):
-                r += self.offset[i]
-                break
-            r += 1
-            i = self.FM[i]
-            
-        if not self.offset.get(idx):
-            self.offset[i] = r
-        return r
     
 class FMCheckpointing(FMSimpleIndex):
     """ creates full LF index for each letter, space inefficient """
@@ -143,44 +137,20 @@ class FMCheckpointing(FMSimpleIndex):
     def __init__(self, data, step = 20):
         self.orig = data
         self.data = bw.transform(data)
-        self.step = step
         self.offset = {}
-        self.FM = None
+        self.step = step
         self._build()
     
-    def _build(self):       
-        occ = bwt.calc_first_occ()
-        
-        # FM Index
-        FM = {}
-        for i, c in enumerate(self.data):
-            # we'll store the nearest LF mapping for each letter
-            # space inefficient
-            for x, v in occ.items():
-                FM[(i,x)] = v
-            FM[i] = occ[c]
-            occ[c] += 1
-        i = len(self.data)
-        for x, v in occ.items():
-            FM[(i,x)] = v
-        del occ
-        
-        self.FM = FM
+    def _build(self):
+        self.occ = bwt.calc_first_occ(self.data)
+        self.C = bwt.calc_checkpoints(self.data, self.step)
     
+    def _count(self, idx, qc):
+        count = bwt.count_letter_with_checkpoints(self.C, self.step, self.data, idx, qc)
+        return count
+
     def _lf(self, idx, qc):
-        return self.FM[(idx,qc)]
-    
-    def _walk(self, idx):
-        r = 0
-        i = idx 
-        while self.data[i] != bw.EOS:
-            if self.offset.get(i):
-                r += self.offset[i]
-                break
-            r += 1
-            i = self.FM[i]
-            
-        if not self.offset.get(idx):
-            self.offset[i] = r
-        return r
-    
+        """ get the nearset lf mapping for letter qc at position idx """
+        o = self._occ(qc)
+        c = self._count(idx, qc)
+        return o + c
