@@ -141,7 +141,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
         
         occ = CalculateFirstOcc(s)
         
-        # calculate the lf-mapping
+        # calculate the full lf-mapping
         # lf is mapping from input letter rank occurance to left letter
         # this shows for which idx in last column corresponds to the first idx
         lf = [0] * len(s)
@@ -163,6 +163,18 @@ class FastBurrowsWheeler(BurrowsWheeler):
         r = ''.join(r)
         return r.rstrip(self.EOS)
 
+def CalculateCheckpoints(s, step):
+    """ count the number of letters upto some idx """
+    A = {} # letter count
+    C = [] # checkpoints
+    for i, c in enumerate(s):
+        if i % step == 0:
+            C.append(A.copy())
+        if A.get(c):
+            A[c] += 1
+        else:
+            A[c] = 1
+    return C
 
 class CheckpointingBurrowsWheeler(BurrowsWheeler):
     # how often checkpoints are made
@@ -212,31 +224,9 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         """ O(n * (step / 4) + n) time, O(n / step + step * E) memory,
             where E is the letter count """
         
-        # count the letters in input string for calculating the
-        # first occurance of the letter in left column of the sorted
-        # suffix matrix
-        A = {} # letter count
-        C = [] # checkpoints
-        for i, c in enumerate(s):
-            if i % self.step == 0:
-                C.append(A.copy())
-            if A.get(c):
-                A[c] += 1
-            else:
-                A[c] = 1
         
-        # sort the letters
-        letters = sorted(A.keys())
-            
-        # first index of letter in left column
-        occ = {}
-        
-        idx = 0
-        for c in letters:
-            occ[c] = idx
-            idx += A[c]
-            
-        del A
+        occ = CalculateFirstOcc(s)
+        C   = CalculateCheckpoints(s, self.step)
         
         # create an empty list for storing the string
         r = [0]*(len(s)-1)
