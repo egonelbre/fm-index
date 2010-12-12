@@ -13,8 +13,8 @@ def load(f):
     return idx
 
 def index(data):
-    return FMSimpleIndex(data)
-    #return FMFullIndex(data)
+    #return FMSimpleIndex(data)
+    return FMFullIndex(data)
 
 class FMSimpleIndex(object):   
     def __init__(self, data):
@@ -25,32 +25,7 @@ class FMSimpleIndex(object):
         self._build()
     
     def _build(self):
-        self.occ = self._calc_occ()
-    
-    def _calc_occ(self):
-        # count the letters in input string for calculating the
-        # first occurance of the letter in left column of the sorted
-        # suffix matrix
-        A = {} # letter count
-        for i, c in enumerate(self.data):
-            if A.get(c):
-                A[c] += 1
-            else:
-                A[c] = 1
-        
-        # sort the letters
-        letters = sorted(A.keys())
-        
-        # first index of letter
-        occ = {}
-        
-        idx = 0
-        for c in letters:
-            occ[c] = idx
-            idx += A[c]
-        del idx, A
-        
-        return occ
+        self.occ = bwt.CalculateFirstOcc(self.data)
     
     def _occ(self, idx, qc):
         c = self.occ.get(qc)
@@ -127,7 +102,7 @@ class FMFullIndex(FMSimpleIndex):
         self._build()
     
     def _build(self):       
-        occ = self._calc_occ()
+        occ = bwt.CalculateFirstOcc(self.data)
         
         # FM Index
         FM = {}

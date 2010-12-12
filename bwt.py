@@ -164,7 +164,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
         return r.rstrip(self.EOS)
 
 def CalculateCheckpoints(s, step):
-    """ count the number of letters upto some idx """
+    """ count the number of letters for each step """
     A = {} # letter count
     C = [] # checkpoints
     for i, c in enumerate(s):
@@ -175,6 +175,44 @@ def CalculateCheckpoints(s, step):
         else:
             A[c] = 1
     return C
+
+def LetterRankWithCheckpoints(C, step, s, idx, letter):
+    # s - is the transformed text
+    # idx - is the index in the tranformed string
+    # C - is the checkpoint list with step 20
+    # occ - is the first occurance of the letters
+    # letter - is the the letter to count
+    
+    # find the nearest checkpoint for idx
+    check = (idx + (step / 2)) / step
+    if check >= len(C):
+        check = len(C) - 1
+    pos = check * step
+    
+    # count of the letter s[idx] upto pos (not included)
+    count = C[check].get(letter)
+    if count == None:
+        count = 0
+    
+    # range between pos and idx
+    if pos < idx:
+        r = xrange(pos, idx)
+    else:
+        r = xrange(idx, pos)
+    
+    # count of letters between pos, idx
+    k = 0        
+    for i in r:
+        if letter == s[i]:
+            k += 1
+    
+    # calculate the letter count upto idx (not included)
+    if pos < idx:
+        count += k
+    else:
+        count -= k
+    
+    return count
 
 class CheckpointingBurrowsWheeler(BurrowsWheeler):
     # how often checkpoints are made
@@ -187,43 +225,15 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         # C - is the checkpoint list with step 20
         # occ - is the first occurance of the letters
         
-        # find the nearest checkpoint for idx
-        check = (idx + (self.step / 2)) / self.step
-        if check >= len(C):
-            check = len(C) - 1
-        pos = check * self.step
+        letter = s[idx]        
+        count = LetterRankWithCheckpoints(C, self.step, s, idx, letter)
         
-        letter = s[idx]
-        
-        # count of the letter s[idx] upto pos (not included)
-        count = C[check].get(letter)
-        if count == None: count = 0
-        
-        # range between pos and idx
-        if pos < idx:
-            r = xrange(pos, idx)
-        else:
-            r = xrange(idx, pos)
-        
-        # count of letters between pos, idx
-        k = 0        
-        for i in r:
-            if letter == s[i]:
-                k += 1
-        
-        # calculate the letter count upto idx (not included)
-        if pos < idx:
-            count += k
-        else:
-            count -= k
-        
-        # return the appropriate idx
+        # return the appropriate lf mapping
         return occ[letter] + count
         
     def inverse(self, s):
         """ O(n * (step / 4) + n) time, O(n / step + step * E) memory,
             where E is the letter count """
-        
         
         occ = CalculateFirstOcc(s)
         C   = CalculateCheckpoints(s, self.step)
