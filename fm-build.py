@@ -20,7 +20,7 @@ def main():
         data = inp.read()
         
         # create index
-        idx = fmindex.FMSimpleIndex(data)
+        idx = fmindex.index(data)
         
         # save index to file
         out = open(sys.argv[2],'w')

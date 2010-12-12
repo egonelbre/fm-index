@@ -35,7 +35,7 @@ class BurrowsWheeler():
         # make empty table for the suffix array
         table = [""] * len(s)
         
-        # use LF-mapping to reverse the tranformation
+        # use lf-mapping to reverse the tranformation
         for i in range(len(s)):
             # add one letter for each partial string in the suffix array
             prepended = [s[i] + table[i] for i in range(len(s))]
@@ -110,7 +110,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
     def inverse(self, s):
         """ Inverse Burrow-Wheeler transform based on
             "A block sorting lossless data compression algorithm"
-            uses LF-mapping for rebuilding the original text.
+            uses lf-mapping for rebuilding the original text.
             O(n) time, O(n*E) memory """
         
         # count the letters in input string for calculating the
@@ -134,23 +134,23 @@ class FastBurrowsWheeler(BurrowsWheeler):
             idx += A[c]
         del idx, A
         
-        # calculate the LF-mapping
-        # LF is mapping from input letter rank occurance to left letter
+        # calculate the lf-mapping
+        # lf is mapping from input letter rank occurance to left letter
         # this shows for which idx in last column corresponds to the first idx
-        LF = [0] * len(s)
+        lf = [0] * len(s)
         for i, c in enumerate(s):
-            LF[i] = occ[c]
+            lf[i] = occ[c]
             occ[c] += 1
         del occ
         
         # create an empty list for storing the string
-        r = [0]*(len(s)-1)
+        r = ['']*(len(s)-1)
         i = 0
         
-        # here we follow the LF mapping until we have the full string
+        # here we follow the lf mapping until we have the full string
         for k in xrange(len(r)-1,-1,-1):
             r[k] = s[i]
-            i = LF[i]
+            i = lf[i]
             
         # convert it to a string
         r = ''.join(r)
@@ -162,7 +162,7 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
     def __init__(self, step = 20):
         self.step = max(1, step)
     
-    def LF(self, s, idx, C, occ):
+    def lf(self, s, idx, C, occ):
         # s - is the transformed text
         # idx - is the index in the tranformed string
         # C - is the checkpoint list with step 20
@@ -235,10 +235,10 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         r = [0]*(len(s)-1)
         i = 0
         
-        # here we follow the LF mapping until we have the full string
+        # here we follow the lf mapping until we have the full string
         for k in xrange(len(r)-1,-1,-1):
             r[k] = s[i]
-            i = self.LF(s, i, C, occ)
+            i = self.lf(s, i, C, occ)
         
         # convert it to a string
         r = ''.join(r)

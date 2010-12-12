@@ -1,8 +1,13 @@
 #!/usr/bin/python
 import os
 from os.path import join, abspath, isfile, isdir, exists, basename
+import time
+
 import sys
 import fmindex
+
+def diff_time(start, end):
+    return int((end - start) * 1000)
 
 def main():
     if not len(sys.argv) in [3]:
@@ -14,13 +19,24 @@ def main():
             print "Index file doesn't exist"
             os.abort()
         
+        tim = time.clock
+        
         inp = open(sys.argv[1])
+        t_start = tim()
         
         idx = fmindex.load(inp)
-        print "count:"
-        print str(idx.count(sys.argv[2]))
-        print "matches:"
-        print str(idx.search(sys.argv[2]))
+        t_load = tim()
+        
+        c = idx.count(sys.argv[2])
+        t_count = tim()
+        
+        m = idx.search(sys.argv[2])
+        t_search = time.clock()
+        print "load: %sms" % diff_time(t_start, t_load)
+        print "count: %sms" % diff_time(t_load, t_count)
+        print str(c)
+        print "matches: %sms" % diff_time(t_count, t_search)
+        print str(m)
 
 if __name__ == '__main__':
     main()
