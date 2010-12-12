@@ -107,9 +107,7 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
 
 
 def CalculateFirstOcc(s):
-    """ count the letters in input string for calculating the
-        first occurance of the letter in left column of the sorted
-        suffix matrix """
+    """ calculate the first occurance of a letter in sorted string s """
     # s - is the bwt transformed string
     A = {} # letter count
     for i, c in enumerate(s):
@@ -121,7 +119,8 @@ def CalculateFirstOcc(s):
     # sort the letters
     letters = sorted(A.keys())
     
-    occ = {} # first index of letter
+    # first index of letter
+    occ = {}
     
     idx = 0
     for c in letters:
@@ -139,6 +138,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
             uses lf-mapping for rebuilding the original text.
             O(n) time, O(n*E) memory """
         
+        # calculate the first occurance of letters in left column
         occ = CalculateFirstOcc(s)
         
         # calculate the full lf-mapping
@@ -235,7 +235,9 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         """ O(n * (step / 4) + n) time, O(n / step + step * E) memory,
             where E is the letter count """
         
+        # calculate the first occurance of letters in left column
         occ = CalculateFirstOcc(s)
+        # calculate the letter count checkpoints, in s
         C   = CalculateCheckpoints(s, self.step)
         
         # create an empty list for storing the string
