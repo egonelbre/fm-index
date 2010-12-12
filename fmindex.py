@@ -162,3 +162,50 @@ class FMFullIndex(FMSimpleIndex):
             self.offset[i] = r
         return r
     
+class FMCheckpointing(FMSimpleIndex):
+    """ creates full LF index for each letter, space inefficient """
+    
+    def __init__(self, data, step = 20):
+        self.orig = data
+        self.data = bw.transform(data)
+        self.step = step
+        self.offset = {}
+        self.FM = None
+        self._build()
+    
+    def _build(self):       
+        occ = self._calc_occ()
+        
+        # FM Index
+        FM = {}
+        for i, c in enumerate(self.data):
+            # we'll store the nearest LF mapping for each letter
+            # space inefficient
+            for x, v in occ.items():
+                FM[(i,x)] = v
+            FM[i] = occ[c]
+            occ[c] += 1
+        i = len(self.data)
+        for x, v in occ.items():
+            FM[(i,x)] = v
+        del occ
+        
+        self.FM = FM
+    
+    def _lf(self, idx, qc):
+        return self.FM[(idx,qc)]
+    
+    def _walk(self, idx):
+        r = 0
+        i = idx 
+        while self.data[i] != bw.EOS:
+            if self.offset.get(i):
+                r += self.offset[i]
+                break
+            r += 1
+            i = self.FM[i]
+            
+        if not self.offset.get(idx):
+            self.offset[i] = r
+        return r
+    

@@ -105,6 +105,32 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
 # Different Inverse implementations
 # ---------------------------------------------------------------------------- #
 
+
+def CalculateFirstOcc(s):
+    """ count the letters in input string for calculating the
+        first occurance of the letter in left column of the sorted
+        suffix matrix """
+    # s - is the bwt transformed string
+    A = {} # letter count
+    for i, c in enumerate(s):
+        if A.get(c):
+            A[c] += 1
+        else:
+            A[c] = 1
+    
+    # sort the letters
+    letters = sorted(A.keys())
+    
+    occ = {} # first index of letter
+    
+    idx = 0
+    for c in letters:
+        occ[c] = idx
+        idx += A[c]
+    del idx, A
+    
+    return occ
+
 class FastBurrowsWheeler(BurrowsWheeler):
     
     def inverse(self, s):
@@ -113,26 +139,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
             uses lf-mapping for rebuilding the original text.
             O(n) time, O(n*E) memory """
         
-        # count the letters in input string for calculating the
-        # first occurance of the letter in left column of the sorted
-        # suffix matrix
-        A = {} # letter count
-        for i, c in enumerate(s):
-            if A.get(c):
-                A[c] += 1
-            else:
-                A[c] = 1
-        
-        # sort the letters
-        letters = sorted(A.keys())
-        
-        occ = {} # first index of letter
-        
-        idx = 0
-        for c in letters:
-            occ[c] = idx
-            idx += A[c]
-        del idx, A
+        occ = CalculateFirstOcc(s)
         
         # calculate the lf-mapping
         # lf is mapping from input letter rank occurance to left letter
