@@ -23,8 +23,7 @@ def main():
         idx = fmindex.index(data)
         
         # save index to file
-        out = open(sys.argv[2],'w')
-        fmindex.save(idx, out)
+        fmindex.save(sys.argv[2], idx)
 
 if __name__ == '__main__':
     main()

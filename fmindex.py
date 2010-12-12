@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 
 import pickle
+#import cPickle as pickle
+import pickle
 import bwt
 
 bw = bwt.CheckpointingBurrowsWheeler()
+#bw = bwt.SuffixTreeBurrowsWheeler()
 
-def save(idx, f):
+def save(filename, idx):
+    f = open(filename, 'w')
     pickle.dump(idx,f)
 
-def load(f):
+def load(filename):
+    f = open(filename)
     idx = pickle.load(f)
     return idx
 
@@ -136,7 +141,7 @@ class FMFullIndex(FMSimpleIndex):
 class FMCheckpointing(FMSimpleIndex):
     """ creates LF index with checkpoints """
     
-    def __init__(self, data, step = 20):
+    def __init__(self, data, step = 50):
         self.data = bw.transform(data)
         self.offset = {}
         self.step = step

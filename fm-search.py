@@ -5,6 +5,7 @@ import time
 
 import sys
 import fmindex
+import tarfile
 
 def diff_time(start, end):
     return int((end - start) * 1000)
@@ -21,10 +22,9 @@ def main():
         
         tim = time.clock
         
-        inp = open(sys.argv[1])
         t_start = tim()
         
-        idx = fmindex.load(inp)
+        idx = fmindex.load(sys.argv[1])
         t_load = tim()
         
         c = idx.count(sys.argv[2])
@@ -37,6 +37,5 @@ def main():
         print str(c)
         print "matches: %sms" % diff_time(t_count, t_search)
         print str(m)
-
 if __name__ == '__main__':
     main()
