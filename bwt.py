@@ -8,10 +8,10 @@ class BurrowsWheeler():
     EOS = "\0"
     # EOS = "#" # a visible end marker
     
-    def Transform(self, s):
+    def transform(self, s):
         """ Simplest Burrows-Wheeler transform implementation, O(n^2) respective
             to the length of the text. """
-        assert self.EOS not in s, "Input string cannot contain null character ('\0')"
+        assert self.EOS not in s, "Input string cannot contain null character (%s)" % self.EOS
         
         # add end of text marker
         s += self.EOS
@@ -30,7 +30,7 @@ class BurrowsWheeler():
         
         return r
     
-    def Inverse(self, s):
+    def inverse(self, s):
         """ Simplest Inverse Burrow-Wheeler transform implementation. """
         # make empty table for the suffix array
         table = [""] * len(s)
@@ -71,9 +71,9 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
             t.extend(k)
         return t
         
-    def Transform(self, s):
+    def transform(self, s):
         """ Burrows-Wheeler transform with SuffixTree """
-        assert "\0" not in s, "Input string cannot contain null character ('\0')"
+        assert self.EOS not in s, "Input string cannot contain null character ('%s')" % self.EOS
         
         # add end of text marker
         s += self.EOS
@@ -107,7 +107,7 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
 
 class FastBurrowsWheeler(BurrowsWheeler):
     
-    def Inverse(self, s):
+    def inverse(self, s):
         """ Inverse Burrow-Wheeler transform based on
             "A block sorting lossless data compression algorithm"
             uses LF-mapping for rebuilding the original text.
@@ -201,7 +201,7 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         # return the appropriate idx
         return occ[letter] + count
         
-    def Inverse(self, s):
+    def inverse(self, s):
         """ O(n * (step / 4) + n) time, O(n / step + step * E) memory,
             where E is the letter count """
         
