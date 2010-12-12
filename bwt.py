@@ -178,12 +178,15 @@ def calc_checkpoints(s, step):
     return C
 
 def count_letter_with_checkpoints(C, step, s, idx, letter):
-    """ count the number of a letter upto idx in s using checkpoints,
-        C      - is the list of checkpoints
-        step   - is the step of the checkpoints
-        s      - the transformed string
-        idx    - count upto this position
-        letter - count for this letter """
+    """ Count the number of a letter upto idx in s using checkpoints.
+    
+    Arguments:
+    C      -- is the list of checkpoints
+    step   -- is the step of the checkpoints
+    s      -- the transformed string
+    idx    -- count upto this position
+    letter -- count for this letter
+    """
     
     # find the nearest checkpoint for idx
     check = (idx + (step / 2)) / step
@@ -217,7 +220,7 @@ def count_letter_with_checkpoints(C, step, s, idx, letter):
     return count
 
 class CheckpointingBurrowsWheeler(BurrowsWheeler):
-    # how often checkpoints are made
+    
     def __init__(self, step = 20):
         self.step = max(1, step)
     

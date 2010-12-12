@@ -3,7 +3,7 @@
 import pickle
 import bwt
 
-bw = bwt.BurrowsWheeler()
+bw = bwt.CheckpointingBurrowsWheeler()
 
 def save(idx, f):
     pickle.dump(idx,f)
@@ -19,12 +19,11 @@ def index(data):
 
 class FMSimpleIndex(object):   
     def __init__(self, data):
-        self.orig = data
         self.data = bw.transform(data)
         self.offset = {}
-        self._build()
+        self._build(data)
     
-    def _build(self):
+    def _build(self, data):
         """ build the index """
         self.occ = bwt.calc_first_occ(self.data)
     
@@ -100,17 +99,20 @@ class FMSimpleIndex(object):
         """ count occurances of q in the index """
         top, bot = self.bounds(q)
         return bot - top
+    
+    def getOriginal(self):
+        return bw.inverse(self.data)
 
 class FMFullIndex(FMSimpleIndex):
     """ creates full LF index for each letter, space inefficient """
     
     def __init__(self, data):
-        self.orig = data
         self.data = bw.transform(data)
         self.offset = {}
         self._build()
     
-    def _build(self):       
+    def _build(self):
+        """ build the index """
         occ = bwt.calc_first_occ(self.data)
         
         # FM Index
@@ -132,25 +134,21 @@ class FMFullIndex(FMSimpleIndex):
         return self.FM[(idx,qc)]
     
 class FMCheckpointing(FMSimpleIndex):
-    """ creates full LF index for each letter, space inefficient """
+    """ creates LF index with checkpoints """
     
     def __init__(self, data, step = 20):
-        self.orig = data
         self.data = bw.transform(data)
         self.offset = {}
         self.step = step
         self._build()
     
     def _build(self):
+        """ build the index """
         self.occ = bwt.calc_first_occ(self.data)
         self.C = bwt.calc_checkpoints(self.data, self.step)
     
     def _count(self, idx, qc):
+        """ count the occurances of letter qc (rank of qc) upto position idx """
         count = bwt.count_letter_with_checkpoints(self.C, self.step, self.data, idx, qc)
         return count
-
-    def _lf(self, idx, qc):
-        """ get the nearset lf mapping for letter qc at position idx """
-        o = self._occ(qc)
-        c = self._count(idx, qc)
-        return o + c
+    
