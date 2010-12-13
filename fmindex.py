@@ -109,6 +109,22 @@ class FMSimpleIndex(object):
     
     def getOriginal(self):
         return bwi.inverse(self.data)
+    
+    def RLE(self):
+        output = []
+        last = ''
+        k = 0
+        for i in range(len(self.data)):
+            ch = self.data[i]
+            if ch == last:
+                k += 1
+            else:
+                if k > 0:
+                    output.append((last, k))
+                last = ch
+                k = 1
+        output.append((last, k))
+        return output
 
 class FMFullIndex(FMSimpleIndex):
     """ creates full LF index for each letter, space inefficient """
