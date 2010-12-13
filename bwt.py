@@ -3,6 +3,7 @@
 import os, re
 
 from suffixtree import SuffixTree
+from itertools import islice
 
 class BurrowsWheeler():
     EOS = "\0"
@@ -87,7 +88,7 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
         # walk inorder to find sorted suffixes
         # only get the length of each suffix
         lens = self._walk(st.root)
-        
+
         # as the last column letter will be left of the suffix
         # this means it's len(suffix) + 1
         # from the end of the input string s
@@ -98,8 +99,38 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
             if l == len(lens):
                 r[i] = self.EOS
             else:
-                r[i] = s[-l-1:-l]
+                r[i] = s[-l-1]
         return ''.join(r)
+
+class SuffixArrayBurrowsWheeler(BurrowsWheeler):
+
+    def transform(self, s):
+        """ Burrow-Wheeler transform with SuffixArray,
+            similar to SuffixTree implementations. """
+        assert self.EOS not in s, "Input string cannot contain null character (%s)" % self.EOS
+        
+        # add end of text marker
+        s += self.EOS
+        
+        # table of suffixes
+        rotations = [ s[i:] for i in range(len(s))]
+        
+        # sort the suffixes
+        rotations.sort()
+        
+        # get the length of ordered suffixes
+        k = len(rotations)
+        
+        r = [0]*k
+        for i in xrange(k):
+            l = len(rotations[i])
+            if l == k:
+                r[i] = self.EOS
+            else:
+                r[i] = s[-l-1]
+        r = ''.join(r)
+        
+        return r
 
 # ---------------------------------------------------------------------------- #
 # Different Inverse implementations

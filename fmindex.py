@@ -5,8 +5,10 @@ import pickle
 import pickle
 import bwt
 
-bw = bwt.CheckpointingBurrowsWheeler()
-#bw = bwt.SuffixTreeBurrowsWheeler()
+# burrow wheeler transform
+bw  = bwt.SuffixArrayBurrowsWheeler()
+# burrow wheeler inverse
+bwi = bwt.CheckpointingBurrowsWheeler()
 
 def save(filename, idx):
     f = open(filename, 'w')
@@ -106,7 +108,7 @@ class FMSimpleIndex(object):
         return bot - top
     
     def getOriginal(self):
-        return bw.inverse(self.data)
+        return bwi.inverse(self.data)
 
 class FMFullIndex(FMSimpleIndex):
     """ creates full LF index for each letter, space inefficient """

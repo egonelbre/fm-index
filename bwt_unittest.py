@@ -4,6 +4,7 @@
 import unittest
 import random
 import string
+import time
 
 import bwt
 
@@ -15,7 +16,15 @@ class Test_BWT_Simple(unittest.TestCase):
                      'ACGACTGCGAGCTCGA', 'a', 'aa', 'aaaaa', 'aaabb']
     
     def setUp(self):
-        self.bw = bwt.BurrowsWheeler()
+        self.bw = self.getBW()
+        self.start = time.time()
+    
+    def getBW(self):
+        return bwt.BurrowsWheeler()
+    
+    def tearDown(self):
+        self.stop = time.time()
+        print str(int((self.stop - self.start) * 1000)) + 'ms'
         
     def do_test_string(self, s):
         ts = self.bw.transform(s)
@@ -40,17 +49,21 @@ class Test_BWT_Simple(unittest.TestCase):
     def test_alphanum(self):
         self.do_test_random(string.letters + string.digits)
 
-class Test_BWT_Suffix(Test_BWT_Simple):
-    def setUp(self):
-        self.bw = bwt.SuffixTreeBurrowsWheeler()
+class Test_BWT_SuffixTree(Test_BWT_Simple):
+    def getBW(self):
+        return bwt.SuffixTreeBurrowsWheeler()
+
+class Test_BWT_SuffixArray(Test_BWT_Simple):
+    def getBW(self):
+        return bwt.SuffixArrayBurrowsWheeler()
 
 class Test_BWT_Fast(Test_BWT_Simple):
-    def setUp(self):
-        self.bw = bwt.FastBurrowsWheeler()
+    def getBW(self):
+        return bwt.FastBurrowsWheeler()
 
 class Test_BWT_Checkpointing(Test_BWT_Simple):
-    def setUp(self):
-        self.bw = bwt.CheckpointingBurrowsWheeler()
+    def getBW(self):
+        return bwt.CheckpointingBurrowsWheeler()
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(argv = unittest.sys.argv + ['--verbose'])
