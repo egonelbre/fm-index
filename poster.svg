@@ -72,6 +72,18 @@
          transform="matrix(-0.4,0,0,-0.4,-4,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <filter
+       inkscape:collect="always"
+       id="filter11707"
+       x="-0.099459324"
+       width="1.1989186"
+       y="-0.11999982"
+       height="1.2399996">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="8.7320444"
+         id="feGaussianBlur11709" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -80,11 +92,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.745"
-     inkscape:cx="2539.1113"
-     inkscape:cy="297.66182"
+     inkscape:zoom="0.52679455"
+     inkscape:cx="1831.0027"
+     inkscape:cy="1214.338"
      inkscape:document-units="px"
-     inkscape:current-layer="g11577"
+     inkscape:current-layer="g11715"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="1175"
@@ -92,7 +104,12 @@
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="false"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-nodes="false"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:object-paths="false" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -1182,13 +1199,13 @@
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
        x="75.024582"
-       y="-771.92328"
+       y="-747.76221"
        id="text5575"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan5577"
          x="75.024582"
-         y="-771.92328"
+         y="-747.76221"
          style="font-size:50px">text -&gt; bwt(text)</tspan></text>
     <flowRoot
        xml:space="preserve"
@@ -1486,9 +1503,11 @@
          y="-613.79944" />
       <path
          style="fill:none;stroke:#888a85;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         d="M 1220.7188 372.8125 C 1204.0956 372.8125 1190.7188 386.1894 1190.7188 402.8125 L 1190.7188 1183.6562 C 1190.7188 1200.2794 1204.0956 1213.6562 1220.7188 1213.6562 L 1969.2812 1213.6562 C 1985.9044 1213.6562 1999.2812 1200.2794 1999.2812 1183.6562 L 1999.2812 756.875 L 2489.0312 756.875 C 2496.6237 756.875 2502.75 750.74873 2502.75 743.15625 L 2502.75 386.53125 C 2502.75 378.93877 2496.6237 372.8125 2489.0312 372.8125 L 1969.2812 372.8125 L 1456.125 372.8125 L 1220.7188 372.8125 z "
+         d="m 1999.2812,784.84375 c 0.7502,-15.10869 13.2039,-27.21853 28.3126,-27.96875 l 461.4374,0 c 7.5926,0 13.7188,-6.12627 13.7188,-13.71875 l 0,-356.625 c 0,-7.59248 -6.1262,-13.71875 -13.7188,-13.71875 l -519.75,0 -513.1562,0 -235.4062,0 c -16.6232,0 -30,13.3769 -30,30 l 0,780.8437 c 0,16.6232 13.3768,30 30,30 l 748.5624,0 c 16.6232,0 30,-13.3768 30,-30 l 0,-398.81245 z"
          transform="translate(240.56938,-1084.3325)"
-         id="rect5591" />
+         id="rect5591"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssssccsssssscc" />
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:#888a85;stroke-width:2.99999976;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect5747"
@@ -3469,7 +3488,7 @@
            y="427.33771"
            x="188.47427"
            id="tspan8943"
-           sodipodi:role="line">follow LF mapping on bwt(text)</tspan></text>
+           sodipodi:role="line">follow LF-mapping on bwt(text)</tspan></text>
       <g
          transform="translate(-441.07798,203.48242)"
          id="g9902">
@@ -4338,7 +4357,7 @@
          y="328.28482"
          x="1503.2114"
          id="tspan10270"
-         sodipodi:role="line">uses bwt(text) as full text index</tspan></text>
+         sodipodi:role="line">uses bwt(text) for full text index</tspan></text>
     <g
        id="g6139"
        transform="matrix(0.90778138,0,0,0.90778138,619.83488,-650.96973)">
@@ -7336,20 +7355,9 @@
     </g>
     <flowRoot
        xml:space="preserve"
-       id="flowRoot10872"
-       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
-       transform="translate(-22.585787,-1052.3622)"><flowRegion
-         id="flowRegion10874"><rect
-           id="rect10876"
-           width="449"
-           height="390"
-           x="2050"
-           y="363.72437" /></flowRegion><flowPara
-         id="flowPara10878"> </flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
        id="flowRoot10880"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
-       transform="matrix(0.87581821,0,0,0.87581821,246.34516,-933.25372)"><flowRegion
+       transform="matrix(0.87581821,0,0,0.87581821,246.34516,-957.93127)"><flowRegion
          id="flowRegion10882"><rect
            id="rect10884"
            width="480"
@@ -7358,18 +7366,14 @@
            y="348.72437"
            style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara10894"
-         style="font-size:30px">'Occ' or rank of letter at </flowPara><flowPara
+         style="font-size:30px">'Occ(c,i)' or rank of letter 'c' at </flowPara><flowPara
          style="font-size:30px"
-         id="flowPara11628"> a position is the count </flowPara><flowPara
+         id="flowPara11632"> a position 'i' is the count of the letter 'c' upto position 'i'.</flowPara><flowPara
          style="font-size:30px"
-         id="flowPara11630"> of the letter before its</flowPara><flowPara
-         style="font-size:30px"
-         id="flowPara11632"> position.</flowPara><flowPara
-         style="font-size:30px"
-         id="flowPara11624"></flowPara><flowPara
+         id="flowPara11624" /><flowPara
          style="font-size:30px"
          id="flowPara11626">The Occ function is the most important factor in the speed of LF mapping implementation.</flowPara></flowRoot>    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#888a85;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 878,2036.7244 0,-772.0429 2042.351,0"
        id="path10898"
        inkscape:connector-curvature="0"
@@ -7499,10 +7503,104 @@
       </g>
     </g>
     <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 49.355104,-842.11453 1541.397896,0"
+       id="path11699"
+       inkscape:connector-curvature="0" />
+    <path
        inkscape:connector-curvature="0"
-       id="path11591"
-       d="m 1630.3617,-978.44853 0,212.01434 1295.6462,0"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       sodipodi:nodetypes="ccc" />
+       id="path11701"
+       d="m 913.62796,357.59416 492.43414,0"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <g
+       id="g11715">
+      <flowRoot
+         transform="translate(-22.585787,-1052.3622)"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
+         id="flowRoot10872"
+         xml:space="preserve"><flowRegion
+           id="flowRegion10874"><rect
+             y="363.72437"
+             x="2050"
+             height="390"
+             width="449"
+             id="rect10876" /></flowRegion><flowPara
+           id="flowPara10878"> </flowPara></flowRoot>      <g
+         style="fill:none;stroke:#a40000;stroke-opacity:1"
+         transform="matrix(0.99683926,-0.07944492,0.07944492,0.99683926,-198.90759,236.28776)"
+         id="g11693">
+        <text
+           xml:space="preserve"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:none;stroke:#003ba4;stroke-opacity:1;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
+           x="2668.8354"
+           y="-929.86798"
+           id="text11649"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="2668.8354"
+             y="-879.86798"
+             id="tspan11687">Egon Elbre</tspan><tspan
+             sodipodi:role="line"
+             x="2668.8354"
+             y="-879.86798"
+             id="tspan11730">University of Tartu</tspan></text>
+        <rect
+           style="fill:none;stroke:#003ba4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect11685"
+           width="522.14764"
+           height="125.60214"
+           x="2402.6846"
+           y="-981.19489" />
+        <rect
+           y="-990.68622"
+           x="2394.1423"
+           height="144.58487"
+           width="539.23212"
+           id="rect11703"
+           style="fill:none;stroke:#003ba4;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <text
+           xml:space="preserve"
+           style="font-size:27.72714424000000122px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#003ba4;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
+           x="2427.0483"
+           y="-819.00146"
+           id="text11734"
+           sodipodi:linespacing="125%"
+           transform="matrix(0.99999734,0.00230711,-0.00230711,0.99999734,0,0)"><tspan
+             sodipodi:role="line"
+             id="tspan11736"
+             x="2427.0483"
+             y="-819.00146">github.com/egonelbre/fm-index</tspan></text>
+      </g>
+      <path
+         transform="matrix(1.4865272,0,0,0.58292429,-686.5431,-942.05812)"
+         d="m 2230.4711,195.06149 c 0,48.22582 -47.1687,87.32057 -105.3542,87.32057 -58.1855,0 -105.3541,-39.09475 -105.3541,-87.32057 0,-48.22582 47.1686,-87.32057 105.3541,-87.32057 58.1855,0 105.3542,39.09475 105.3542,87.32057 z"
+         sodipodi:ry="87.320572"
+         sodipodi:rx="105.35416"
+         sodipodi:cy="195.06149"
+         sodipodi:cx="2125.1169"
+         id="path11705"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter11707);opacity:0.46058091"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:type="arc"
+         style="opacity:0.63485478;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter11707)"
+         id="path11711"
+         sodipodi:cx="2125.1169"
+         sodipodi:cy="195.06149"
+         sodipodi:rx="105.35416"
+         sodipodi:ry="87.320572"
+         d="m 2230.4711,195.06149 c 0,48.22582 -47.1687,87.32057 -105.3542,87.32057 -58.1855,0 -105.3541,-39.09475 -105.3541,-87.32057 0,-48.22582 47.1686,-87.32057 105.3541,-87.32057 58.1855,0 105.3542,39.09475 105.3542,87.32057 z"
+         transform="matrix(1.4865272,0,0,0.58292429,-948.50481,-1072.0898)" />
+      <path
+         transform="matrix(1.1973696,0,0,0.58292429,23.721684,-1082.5303)"
+         d="m 2230.4711,195.06149 c 0,48.22582 -47.1687,87.32057 -105.3542,87.32057 -58.1855,0 -105.3541,-39.09475 -105.3541,-87.32057 0,-48.22582 47.1686,-87.32057 105.3541,-87.32057 58.1855,0 105.3542,39.09475 105.3542,87.32057 z"
+         sodipodi:ry="87.320572"
+         sodipodi:rx="105.35416"
+         sodipodi:cy="195.06149"
+         sodipodi:cx="2125.1169"
+         id="path11713"
+         style="opacity:0.63485478;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter11707)"
+         sodipodi:type="arc" />
+    </g>
   </g>
 </svg>
