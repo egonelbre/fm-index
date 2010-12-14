@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="poster.svg">
+   sodipodi:docname="poster.pdf"
+   inkscape:export-filename="/home/egon/ut/txtalg/fm-index/poster.png"
+   inkscape:export-xdpi="300.01077"
+   inkscape:export-ydpi="300.01077">
   <defs
      id="defs4">
     <marker
@@ -92,11 +95,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0535891"
-     inkscape:cx="1282.0887"
-     inkscape:cy="603.98711"
+     inkscape:zoom="0.3725"
+     inkscape:cx="1665.1401"
+     inkscape:cy="1052.7826"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g10902"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="1175"
@@ -118,7 +121,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -7583,12 +7586,12 @@
            x="3057.0198"
            sodipodi:role="line"
            style="font-size:14.49901772px"
-           id="tspan6785">slow similarly to naïve</tspan><tspan
+           id="tspan6789">similarly to naïve Occ</tspan><tspan
            y="1357.1305"
            x="3057.0198"
            sodipodi:role="line"
            style="font-size:14.49901772px"
-           id="tspan6789">Occ calculation</tspan></text>
+           id="tspan7068">it is slow</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:11.04901695px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
@@ -8350,5 +8353,9 @@
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
          id="flowPara6944">if compression is used then </flowPara><flowPara
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
-         id="flowPara6982">it memory use can be sublinear to the size of the text</flowPara></flowRoot>  </g>
+         id="flowPara6982">its memory use </flowPara><flowPara
+         style="font-size:22.83578873px;text-align:start;text-anchor:start"
+         id="flowPara7026">can be sublinear</flowPara><flowPara
+         style="font-size:22.83578873px;text-align:start;text-anchor:start"
+         id="flowPara7024">to the size of the text</flowPara></flowRoot>  </g>
 </svg>
