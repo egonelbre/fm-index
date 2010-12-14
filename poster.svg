@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="poster.pdf"
+   sodipodi:docname="poster.svg"
    inkscape:export-filename="/home/egon/ut/txtalg/fm-index/poster.png"
    inkscape:export-xdpi="300.01077"
    inkscape:export-ydpi="300.01077">
@@ -95,15 +95,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.3725"
-     inkscape:cx="1665.1401"
-     inkscape:cy="1052.7826"
+     inkscape:zoom="1.0535891"
+     inkscape:cx="1576.4158"
+     inkscape:cy="414.74807"
      inkscape:document-units="px"
-     inkscape:current-layer="g10902"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1600"
-     inkscape:window-height="1175"
-     inkscape:window-x="1280"
+     inkscape:window-height="1150"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
@@ -121,7 +121,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -7301,7 +7301,7 @@
            sodipodi:role="line"
            x="2868.5823"
            y="1098.9242"
-           id="tspan10098"></tspan><tspan
+           id="tspan10098" /><tspan
            style="font-size:14.49901772px"
            sodipodi:role="line"
            x="2868.5823"
@@ -8331,8 +8331,8 @@
            style="text-align:start;text-anchor:start"
            y="348.72437"
            x="2052"
-           height="596.70422"
-           width="419.22177"
+           height="597.78796"
+           width="431.14264"
            id="rect6897" /></flowRegion><flowPara
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
          id="flowPara6912">FM-index is a memory efficient full text index</flowPara><flowPara
@@ -8353,9 +8353,7 @@
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
          id="flowPara6944">if compression is used then </flowPara><flowPara
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
-         id="flowPara6982">its memory use </flowPara><flowPara
-         style="font-size:22.83578873px;text-align:start;text-anchor:start"
-         id="flowPara7026">can be sublinear</flowPara><flowPara
+         id="flowPara7026">its memory use can be sublinear</flowPara><flowPara
          style="font-size:22.83578873px;text-align:start;text-anchor:start"
          id="flowPara7024">to the size of the text</flowPara></flowRoot>  </g>
 </svg>
