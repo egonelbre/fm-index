@@ -92,11 +92,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0535891"
-     inkscape:cx="1833.98"
-     inkscape:cy="313.92752"
+     inkscape:zoom="8.4287128"
+     inkscape:cx="1634.6621"
+     inkscape:cy="458.48963"
      inkscape:document-units="px"
-     inkscape:current-layer="g6238"
+     inkscape:current-layer="g6278"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="1175"
@@ -7308,31 +7308,31 @@
            sodipodi:role="line"
            x="2868.5823"
            y="1135.1718"
-           id="tspan4473">  qc = q[ i ]</tspan><tspan
-           style="font-size:14.49901772px"
-           sodipodi:role="line"
-           x="2868.5823"
-           y="1135.1718"
-           id="tspan9975">  top = LF(top, qc)</tspan><tspan
+           id="tspan4473">  c   = q[ i ]</tspan><tspan
            style="font-size:14.49901772px"
            sodipodi:role="line"
            x="2868.5823"
            y="1153.2955"
-           id="tspan9981">  bot = LF(bot, qc)</tspan><tspan
+           id="tspan9975">  top = LF(top, c)</tspan><tspan
            style="font-size:14.49901772px"
            sodipodi:role="line"
            x="2868.5823"
            y="1171.4193"
-           id="tspan9983">  if ( top &gt;= bot )</tspan><tspan
+           id="tspan9981">  bot = LF(bot, c)</tspan><tspan
            style="font-size:14.49901772px"
            sodipodi:role="line"
            x="2868.5823"
            y="1189.5431"
-           id="tspan4471">     return none</tspan><tspan
+           id="tspan9983">  if ( top &gt;= bot )</tspan><tspan
            style="font-size:14.49901772px"
            sodipodi:role="line"
            x="2868.5823"
            y="1207.6669"
+           id="tspan4471">     return none</tspan><tspan
+           style="font-size:14.49901772px"
+           sodipodi:role="line"
+           x="2868.5823"
+           y="1225.7905"
            id="tspan10193-1">return [top..bot)</tspan></text>
       <path
          transform="matrix(0.50577586,0,0,0.50577586,2026.076,681.70949)"
@@ -7614,30 +7614,6 @@
        transform="translate(0,-1052.3622)"><tspan
          sodipodi:role="line"
          id="tspan11754" /></text>
-    <rect
-       y="1217.1721"
-       x="2215.6633"
-       height="218.00479"
-       width="143.53622"
-       id="rect8714-5"
-       style="fill:#eeeeec;fill-opacity:1;stroke:#d3d7cf;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4661"
-       y="1241.1871"
-       x="2049.6882"
-       style="font-size:16.008564px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
-       xml:space="preserve"><tspan
-         y="1241.1871"
-         x="2049.6882"
-         id="tspan4663"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:FreeMono;-inkscape-font-specification:FreeMono">[X] = q[i..]</tspan><tspan
-         y="1261.1979"
-         x="2049.6882"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:FreeMono;-inkscape-font-specification:FreeMono"
-         id="tspan4990">  c = q[i-1]</tspan></text>
     <g
        id="g6278"
        transform="matrix(0.88191059,0,0,0.88191059,109.05317,-868.98414)">
@@ -7683,6 +7659,20 @@
          width="84.224304"
          id="rect6272"
          style="fill:#eeeeec;fill-opacity:1;stroke:#888a85;stroke-width:1.13390183;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         style="fill:#ef2929;fill-opacity:0.15350874;stroke:#ef2929;stroke-width:1.13390172;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect6604"
+         width="144.211"
+         height="15.981167"
+         x="1944.7638"
+         y="1663.2255" />
+      <rect
+         y="1562.9626"
+         x="1944.7638"
+         height="15.981167"
+         width="144.211"
+         id="rect6606"
+         style="fill:#ef2929;fill-opacity:0.15350874;stroke:#ef2929;stroke-width:1.13390172;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
       <rect
          y="1581.9874"
          x="1689.4915"
@@ -7780,23 +7770,11 @@
          sodipodi:nodetypes="cssc"
          inkscape:connector-curvature="0"
          id="path5083"
-         d="m 2079.3185,1670.6135 c 2.2286,-0.084 10.3909,-1.8844 12.7236,-7.761 7.8856,-19.8655 15.9508,-66.9003 0.8545,-84.8937 -2.6728,-3.1858 -6.3327,-2.9667 -10.3149,-3.9993"
+         d="m 2081.4113,1670.994 c 2.2286,-0.084 8.2981,-2.2649 10.6308,-8.1415 7.8856,-19.8655 15.9508,-66.9003 0.8545,-84.8937 -2.6728,-3.1858 -6.3327,-2.9667 -10.3149,-3.9993"
          style="fill:none;stroke:#000000;stroke-width:1.13390183px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-7)" />
-      <text
-         transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"
-         sodipodi:linespacing="125%"
-         id="text6065"
-         y="2626.0264"
-         x="332.51865"
-         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
-         xml:space="preserve"><tspan
-           id="tspan6130"
-           y="2626.0264"
-           x="332.51865"
-           sodipodi:role="line">contradicts</tspan></text>
       <path
          style="fill:none;stroke:#000000;stroke-width:1.13390183px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-7)"
-         d="m 2082.4089,1572.4329 c 34.3427,-14.6561 45.3758,18.0535 1.5205,18.9738"
+         d="m 2081.2674,1572.8134 c 34.3427,-14.6561 46.5173,17.673 2.662,18.5933"
          id="path6073"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc" />
@@ -8109,15 +8087,51 @@
            sodipodi:role="line"
            x="1749.5653"
            y="1554.972"
-           id="tspan6565">X = q[i..]</tspan><tspan
+           id="tspan6565">X = q[i+1..]</tspan><tspan
            sodipodi:role="line"
            x="1749.5653"
            y="1571.9806"
-           id="tspan6569">c = q[i-1]</tspan><tspan
+           id="tspan6569">c = q[i]</tspan><tspan
            sodipodi:role="line"
            x="1749.5653"
            y="1588.9891"
            id="tspan6563" /></text>
+      <g
+         id="g6571"
+         transform="matrix(0.44532004,-0.48852256,0.48852256,0.44532004,485.54235,1861.746)">
+        <rect
+           y="1539.3453"
+           x="1902.3965"
+           height="22.990229"
+           width="120.83597"
+           id="rect6573"
+           style="fill:#ef2929;fill-opacity:1;stroke:#a40000;stroke-width:1.71534908;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           ry="0" />
+        <text
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
+           x="1906.7148"
+           y="1555.2257"
+           id="text6575"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6577"
+             x="1906.7148"
+             y="1555.2257"
+             style="font-size:17.15349021px">contradicts</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
+           x="1962.7517"
+           y="1614.4559"
+           id="text6581"
+           sodipodi:linespacing="125%"
+           transform="matrix(1.1555847,1.2676933,-1.2676933,1.1555847,1693.0372,-2790.3344)"><tspan
+             sodipodi:role="line"
+             id="tspan6583"
+             x="1962.7517"
+             y="1614.4559"> </tspan></text>
+      </g>
     </g>
     <text
        xml:space="preserve"
