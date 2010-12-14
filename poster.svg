@@ -92,11 +92,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.52679455"
-     inkscape:cx="1831.0027"
-     inkscape:cy="1214.338"
+     inkscape:zoom="0.26339728"
+     inkscape:cx="1466.814"
+     inkscape:cy="672.93671"
      inkscape:document-units="px"
-     inkscape:current-layer="g11715"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="1175"
@@ -4349,15 +4349,15 @@
     <text
        sodipodi:linespacing="125%"
        id="text10268"
-       y="328.28482"
-       x="1503.2114"
+       y="313.09863"
+       x="1495.6183"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans Mono;-inkscape-font-specification:Droid Sans Mono"
        xml:space="preserve"><tspan
          style="font-size:50px"
-         y="328.28482"
-         x="1503.2114"
+         y="313.09863"
+         x="1495.6183"
          id="tspan10270"
-         sodipodi:role="line">uses bwt(text) for full text index</tspan></text>
+         sodipodi:role="line">uses bwt(text) for full text search</tspan></text>
     <g
        id="g6139"
        transform="matrix(0.90778138,0,0,0.90778138,619.83488,-650.96973)">
@@ -7373,7 +7373,7 @@
          id="flowPara11624" /><flowPara
          style="font-size:30px"
          id="flowPara11626">The Occ function is the most important factor in the speed of LF mapping implementation.</flowPara></flowRoot>    <path
-       style="fill:none;stroke:#888a85;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:none;stroke:#888a85;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 878,2036.7244 0,-772.0429 2042.351,0"
        id="path10898"
        inkscape:connector-curvature="0"
