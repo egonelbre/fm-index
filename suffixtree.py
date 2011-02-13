@@ -41,3 +41,9 @@ class SuffixTree(object):
         
     def __str__(self):
         return '\n'.join(self.strings())
+    
+    def _json(self, node):
+        data = "{name:%s}" % (node)
+    
+    def json(self):
+        return _json(self.root)
