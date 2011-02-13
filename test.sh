@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./fm-build.py test_data test_idx && ./fm-search.py test_idx "acgt"
+./fm-build.py data/test_data data/test_idx && ./fm-search.py data/test_idx "acgt"
