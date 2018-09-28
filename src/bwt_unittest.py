@@ -9,7 +9,7 @@ import time
 import bwt
 
 def sampler(alphabet, count):
-    return [random.choice(alphabet) for _ in xrange(count)]
+    return [random.choice(alphabet) for _ in range(count)]
 
 class Test_BWT_Simple(unittest.TestCase):
     TEST_STRINGS = [ 'abracdabra', '', 'abcdefghijklmnopqrstuvw',
@@ -36,7 +36,7 @@ class Test_BWT_Simple(unittest.TestCase):
             self.do_test_string(s)
     
     def do_test_random(self, alpha, min = 3, max = 100, times = 30):
-        for _ in xrange(times):
+        for _ in range(times):
             x = sampler(alpha, random.randint(min,max))
             self.do_test_string(''.join(x))
             

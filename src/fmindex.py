@@ -11,11 +11,11 @@ bw  = bwt.SuffixArrayBurrowsWheeler()
 bwi = bwt.CheckpointingBurrowsWheeler()
 
 def save(filename, idx):
-    f = open(filename, 'w')
+    f = open(filename, 'wb')
     pickle.dump(idx,f)
 
 def load(filename):
-    f = open(filename)
+    f = open(filename, "rb")
     idx = pickle.load(f)
     return idx
 
@@ -45,7 +45,7 @@ class FMSimpleIndex(object):
         """ count the occurances of letter qc (rank of qc) upto position idx """
         if not qc in self.occ.keys(): return 0
         c = 0
-        for i in xrange(idx):
+        for i in range(idx):
             if self.data[i] == qc:
                 c += 1
         return c

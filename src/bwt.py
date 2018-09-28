@@ -94,7 +94,7 @@ class SuffixTreeBurrowsWheeler(BurrowsWheeler):
         # from the end of the input string s
         
         r = [0]*len(lens)
-        for i in xrange(len(lens)):
+        for i in range(len(lens)):
             l = lens[i]
             if l == len(lens):
                 r[i] = self.EOS
@@ -122,7 +122,7 @@ class SuffixArrayBurrowsWheeler(BurrowsWheeler):
         k = len(rotations)
         
         r = [0]*k
-        for i in xrange(k):
+        for i in range(k):
             l = len(rotations[i])
             if l == k:
                 r[i] = self.EOS
@@ -186,7 +186,7 @@ class FastBurrowsWheeler(BurrowsWheeler):
         i = 0
         
         # here we follow the lf mapping until we have the full string
-        for k in xrange(len(r)-1,-1,-1):
+        for k in range(len(r)-1,-1,-1):
             r[k] = s[i]
             i = lf[i]
             
@@ -220,7 +220,7 @@ def count_letter_with_checkpoints(C, step, s, idx, letter):
     """
     
     # find the nearest checkpoint for idx
-    check = (idx + (step / 2)) / step
+    check = int((idx + (step / 2)) / step)
     if check >= len(C):
         check = len(C) - 1
     pos = check * step
@@ -232,9 +232,9 @@ def count_letter_with_checkpoints(C, step, s, idx, letter):
     
     # range between pos and idx
     if pos < idx:
-        r = xrange(pos, idx)
+        r = range(pos, idx)
     else:
-        r = xrange(idx, pos)
+        r = range(idx, pos)
     
     # count of letters between pos, idx
     k = 0        
@@ -281,7 +281,7 @@ class CheckpointingBurrowsWheeler(BurrowsWheeler):
         i = 0
         
         # here we follow the lf mapping until we have the full string
-        for k in xrange(len(r)-1,-1,-1):
+        for k in range(len(r)-1,-1,-1):
             r[k] = s[i]
             i = self.lf(s, i, C, occ)
         

@@ -6,12 +6,12 @@ import fmindex
 
 def main():
     if not len(sys.argv) in [3]:
-        print 'Usage: '
-        print '  %s data index' % sys.argv[0]
+        print('Usage: ')
+        print('  %s data index' % sys.argv[0])
         os.abort()
     else:
         if not isfile(sys.argv[1]):
-            print "Input file doesn't exist"
+            print("Input file doesn't exist")
             os.abort()
         
         inp = open(sys.argv[1])
